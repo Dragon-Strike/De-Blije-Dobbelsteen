@@ -14,11 +14,15 @@
 /* Style navigation menu links */
 .topnav a {
     color: #E0E0D0;
-    padding: 14px 16px;
+    padding: 2px 16px;
     text-decoration: none;
-    font-size: 116px;
+    font-size: 60px;
     display: block;
-    height: 21vw;
+    height: 12vh;
+
+}
+.fa {
+    font-size: 10vw;
 }
 
 /* Style the hamburger menu */
@@ -28,6 +32,11 @@
     position: absolute;
     right: 0;
     top: 0;
+    font-size: 15vw;
+}
+
+.padding {
+    margin-top: 5vh;
 }
 
 /* Style the active link (or home/logo) */
@@ -46,6 +55,7 @@ body{
 /* titel home*/
 #home{
     font-size: 35pt;
+    padding-top: 2vh;
 }
 /*text home pagina*/
 #welkom{
@@ -93,8 +103,9 @@ body{
 
 /*logo*/
 #dobbelsteen{
-width: 22vw;
+    width: 18vw;
     float: left;
+    padding-top: 1vh;
 }
 
 .footer {
