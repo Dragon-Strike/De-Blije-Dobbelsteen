@@ -3,8 +3,12 @@
 .topnav {
     overflow: hidden;
     background-color: #333;
-    position: relative;}
 
+}
+
+.desknav{
+    display: none;
+}
 /* Hide the links inside the navigation menu (except for logo/home) */
 .topnav #myLinks {
     display: none;
@@ -51,6 +55,7 @@ body{
     position: absolute;
     font-family: Arial;
     background: #E0E0D0;
+    width: 100%;
 }
 /* titel home*/
 #home{
@@ -63,42 +68,6 @@ body{
     color: black;
     bottom: -50px;
     font-size: 20pt;
-}
-/*lingo logo*/
-#lingo{
-    color: white;
-    background: black;
-    position: relative;
-    font-size: 20pt;
-    font-family: Arial;
-    bottom: -200px;
-    opacity: 70%;
-    padding-top: 10px;
-}
-/*4 op een rij logo*/
-#rij{
-    position: relative;
-    top: 300px;
-    background: black;
-    opacity: 70%;
-    padding-top: 10px;
-}
-
-#gamenaamlingo{
-    color: black;
-    position: relative;
-    bottom: -210px;
-
-}
-
-#gamenaamrij{
-    position: relative;
-    top: 310px;
-}
-
-/*games op homepagina*/
-#games{
-    margin-top: -50px;
 }
 
 /*logo*/
@@ -118,9 +87,168 @@ body{
     text-align: center;
     height: 10vw;
     font-size: 3vw;
+    display: none;
 }
 
 @media only screen and (min-width: 1025px) {
+    /* Style the navigation menu */
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+        position: relative;
+        display: none;
+    }
+
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    .topnav #myLinks {
+        display: none;
+        display: none;
+
+    }
+
+    /* Style navigation menu links */
+    .topnav a {
+        color: #E0E0D0;
+        padding: 2px 16px;
+        text-decoration: none;
+        font-size: 60px;
+        display: block;
+        height: 12vh;
+        display: none;
+
+    }
+
+
+    /* Style the hamburger menu */
+    .topnav a.icon {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 15vw;
+        display: none;
+    }
+
+    .padding {
+        margin-top: 5vh;
+        display: none;
+    }
+
+    /* Style the active link (or home/logo) */
+    .active {
+        background-color: #76C2AF;
+        color: #76C2AF;
+        display: none;
+    }
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------*/
+    /* Circle behind */
+    div.circleBehind a:before, div.circleBehind a:after
+    {
+        position: absolute;
+        top: 22px;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        border: 4px solid #0277bd;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        border-radius: 50%;
+        background: transparent;
+        content: "";
+        opacity: 0;
+        transition: all 0.3s;
+        z-index: -1;
+    }
+
+    div.circleBehind a:after
+    {
+        border-width: 2px;
+        transition: all 0.4s;
+    }
+
+    div.circleBehind a:hover:before
+    {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+
+    div.circleBehind a:hover:after
+    {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-50%) scale(1.3);
+    }
+
+    div.container
+    {
+        font-family: Raleway;
+        margin: 0 auto;
+        padding: 2em 3em;
+        margin-top: 3vw ;
+        text-align: center;
+        width: 82vw;
+        background: #76C2AF;
+    }
+
+    div.container a
+    {
+        color: #FFF;
+        text-decoration: none;
+        font: 20px Raleway;
+        margin: 0px 10px;
+        padding: 10px 10px;
+        position: relative;
+        z-index: 0;
+        cursor: pointer;
+    }
+
+
+    #logodesk{
+        z-index: 2;
+        position: absolute;
+        height: 10vw;
+        top: 0.5vw;
+        left: 1vw;
+    }
+    #logodesk2{
+        z-index: 2;
+        position: absolute;
+        height: 10vw;
+        top: 0.5vw;
+        left: 88.2vw;
+    }
+
+    .containergames{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 13vw;
+        background: #76C2AF;
+        width: 73vw;
+        margin-top: 6vw;
+        height: 29vw;
+
+    }
+
+    .gameshome{
+        padding: 6vw;
+        padding-top: 0vw;
+        margin-left: 2.5vw;
+    }
+    #gameteks{
+        display: block;
+        font-size: 20pt;
+        margin-left: 17vw;
+
+    }
+
+    /* titel home*/
+    #home{
+        font-size: 35pt;
+        padding-top: 20px;
+    }
+    body{
+
+    }
 
 
 }
