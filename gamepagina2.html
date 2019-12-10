@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="games.css">
+        <title>4 op een rij</title>
+        <script src="4opeenrij.js"></script>
+
+    </head>
+
+    <body onload="CraeteGameGraphics()">
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a href="#home" class="active"> <img id="dobbelsteen" src="images/blije_dobbelsteen_logo%20(1).png"> </a>
+
+            <!-- navigatie mobile -->
+            <div id="myLinks">
+                <a class="padding" href="#home">Home</a>
+                <a href="#home">home</a>
+                <a href="#overDBD">Over DBD</a>
+                <a href="#spelregels">Spelregels</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <!-- "Hamburger menu"-->
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- desktop nav -->
+        <div class="newnav">
+            <div class="container blue circleBehind">
+                <a class="home" href="#home">Home</a>
+                <a href="#overDBD">Over DBD</a>
+                <a href="#spelregels">Spelregels</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <img id="logodesk" src="images/blije_dobbelsteen_logo%20(1).png">
+            <img id="logodesk2" src="images/blije_dobbelsteen_logo%20(1).png">
+        </div>
+
+        <div id="home">(gamenaam)</div>
+
+        <div class="containergames" id="containergames">
+            <div class="center">
+
+            </div>
+        </div>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myLinks");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+            }
+
+            let Game = document.createElement('div');
+            Game.classList.add("game");
+
+            let player1 = false;
+            let player2 = false;
+            let color1 = 'red';
+            let color2 = 'blue';
+
+            let firstTime = true;
+
+            function SwitchPlayer() {
+                player1 = !player1;
+                player2 = !player2;
+            }
+
+            function CraeteGameGraphics(){
+
+
+
+                for(let i = 0 ; i<6; i++){
+                    //create new row
+                    let Row = document.createElement('div');
+
+                    Row.classList.add('row');
+                    for(let j = 0 ; j < 7 ; j++){
+                        let circle = document.createElement('div');
+                        circle.id = (i+1) + ',' + (j+1);
+                        circle.classList.add('circle');
+                        circle.addEventListener("click", GameClicked);
+                        Row.appendChild(circle);
+
+                    }
+
+                    Game.appendChild(Row);
+                }
+
+                function GameClicked(e){
+                    let clickedCircle = e.target;
+                    //console.log(clickedCircle.id);
+                    if(firstTime){
+                        Play(clickedCircle);
+                        firstTime = false;
+                    }else{
+                        SwitchPlayer();
+                        Play(clickedCircle);
+                    }
+                }
+
+                function Play(clickedCircle) {
+                    let circle = document.getElementById(clickedCircle.id);
+                    console.log(circle);
+                    let index = circle.id[circle.id.length - 1];
+                    console.log(index);
+                    for(let i = 6;i>0;i--){
+                        let currentCircle = document.getElementById(i + ',' + index);
+                        console.log('hiere' , currentCircle.style);
+                        if(currentCircle.style.backgroundColor === ""){
+                            console.log('true');
+                            //condition ? if true do ... : if false do ....
+                            currentCircle.style.background = player1 ? color1 : color2;
+                            break;
+                        }
+                    }
+                }
+
+                function StartGame(){
+                    player1 = true;
+                }
+
+                document.getElementById('containergames').appendChild(Game);
+                document.body.onload = function () {
+                    StartGame();
+                }
+            }
+
+            console.log(Game);
+
+        </script>
+
+        <div class="footer">
+            <p>De blije dobbelsteen©</p>
+        </div>
+    </body>
+
+
+</html>

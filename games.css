@@ -279,4 +279,21 @@ body {
         margin-top: -14.5vw;
         margin-left: -3.5vw;
     }
+    .game{
+        background: yellow;
+        width: 600px;
+
+    }
+    .row{
+        background: teal;
+        border: 1px solid black;
+        height: 50px;
+        display: flex;
+    }
+    .circle{
+        border-radius: 50%;
+        background: white;
+        padding:5px;
+        width: 14.285%;
+    }
 }
