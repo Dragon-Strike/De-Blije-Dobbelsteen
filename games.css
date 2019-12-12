@@ -280,14 +280,14 @@ body {
         margin-left: -3.5vw;
     }
     .game{
-        background: yellow;
-        width: 600px;
-
+        width: 85%;
+        padding-left: 125px;
+        padding-top: 20px;
     }
     .row{
         background: teal;
         border: 1px solid black;
-        height: 50px;
+        height: 65px;
         display: flex;
     }
     .circle{
