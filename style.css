@@ -109,15 +109,15 @@ body {
     max-width: 80vw;
 }
 
-.testen {
-    margin-left: 14vw;
-    max-width: 80vw;
-    margin-top: 11vw;
-    margin-bottom: 7vw;
-}
-
 .center {
     text-align: center;
+}
+
+#gameteks {
+    margin: 3px;
+    margin-top: 15px;
+    text-align: center;
+    justify-content: center;
 }
 
 
@@ -257,21 +257,19 @@ body {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
         margin-left: 13vw;
         background: #76C2AF;
         width: 73vw;
-        margin-top: 3 vw;
+        margin-top: 3vw;
         height: 29vw;
     }
-    .gameshome {
-        padding: 6vw;
-        padding-top: 0vw;
-        margin-left: 2.5vw;
-    }
     #gameteks {
-        display: block;
         font-size: 20pt;
-        margin-top: -10vw;
+        margin: 3px;
+        text-align: center;
+        justify-content: center;
     }
     /* titel home*/
     #home {
@@ -280,8 +278,11 @@ body {
     }
     .center {
         display: flex;
-        margin-top: -14.5vw;
-        margin-left: -3.5vw;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .img {
+        width: 240px;
     }
     #welkom {
         color: white;
@@ -291,5 +292,11 @@ body {
         max-width: 80vw;
         margin-bottom: 3vw;
         margin-top: 3vw;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .img {
+        width: 300px;
     }
 }
