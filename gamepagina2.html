@@ -1,170 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="games.css">
+    <title>De blije dobbelsteen</title>
 
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="games.css">
-        <title>4 op een rij</title>
-        <script src="4opeenrij.js"></script>
+</head>
+<body>
+<!-- Top Navigation Menu -->
+<div class="topnav">
+    <a  href="index.html" class="active"> <img  id="dobbelsteen" src="images/blije_dobbelsteen_logo%20(1).png" > </a>
 
-    </head>
+    <!-- navigatie mobile -->
+    <div id="myLinks">
+        <a class="padding" href="index.html">Home</a>
+        <a href="OverDbD.html">Over DBD</a>
+        <a href="#spelregels">Spelregels</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
-    <body onload="CraeteGameGraphics()">
-    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- "Hamburger menu"-->
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
 
-    <!-- Top Navigation Menu -->
-        <div class="topnav">
-            <a href="#home" class="active"> <img id="dobbelsteen" src="images/blije_dobbelsteen_logo%20(1).png"> </a>
+<!-- desktop nav -->
+<div class="newnav">
+    <div class="container blue circleBehind">
+        <a class="home" href="index.html">Home</a>
+        <a href="OverDbD.html">Over DBD</a>
+        <a href="#spelregels">Spelregels</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
-            <!-- navigatie mobile -->
-            <div id="myLinks">
-                <a class="padding" href="#home">Home</a>
-                <a href="#home">home</a>
-                <a href="#overDBD">Over DBD</a>
-                <a href="#spelregels">Spelregels</a>
-                <a href="#contact">Contact</a>
+    <img id="logodesk" src="images/blije_dobbelsteen_logo%20(1).png">
+    <img  id="logodesk2" src="images/blije_dobbelsteen_logo%20(1).png">
+</div>
+
+<div id="home">Home</div>
+
+<div id="welkom">
+    Wij waarderen uw bezoek aan onze
+    website, U kunt hier meer informatie
+    over De Blije Dobbelsteen vinden
+</div>
+
+<div class="containergames">
+    <body onload="beginGame();">
+    <h1>Connect Four</h1>
+    <p>Connect Four is a game where players take turn dropping colored circles in the top of the board, along different rows.  The goal is to make a row
+        of 4 circles in a row - straight or diagnol.</p>
+        <div id="gameboard">
+            <button id="begin_game" onclick="beginGame();">Begin Game</button>
+            <div id="game_info">
             </div>
+            <table id="game_table">
+                <tr>
+                    <!-- Set up the buttons that will drop the pieces in to the column.  This could be programmatically generated like
+                    the rows/columns below, but since it was just 7, it wouldn't really save code -->
+                    <td><button onclick="drop(0);">Drop</button></td>
+                    <td><button onclick="drop(1);">Drop</button></td>
+                    <td><button onclick="drop(2);">Drop</button></td>
+                    <td><button onclick="drop(3);">Drop</button></td>
+                    <td><button onclick="drop(4);">Drop</button></td>
+                    <td><button onclick="drop(5);">Drop</button></td>
+                    <td><button onclick="drop(6);">Drop</button></td>
+                </tr>
+                <script>
+                    for (var col=0; col<=5; col++) {
 
-            <!-- "Hamburger menu"-->
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
+                        document.writeln("<tr>");
+                        for (var row=0; row<=6; row++) {
+                            document.writeln("<td id='square_" + col + "_"+ row +"' class='board_square'></td>");
+                        }
+                        document.writeln("</tr>");
+                    }
+                </script>
+            </table>
+</div>
 
-        <!-- desktop nav -->
-        <div class="newnav">
-            <div class="container blue circleBehind">
-                <a class="home" href="#home">Home</a>
-                <a href="#overDBD">Over DBD</a>
-                <a href="#spelregels">Spelregels</a>
-                <a href="#contact">Contact</a>
-            </div>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myLinks");
+        if (x.style.display === "block") {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+        }
+    }
+</script>
+    <script type="text/javascript">
+        /* set the global variables so we can use them wihin functions */
+        var game_active = false;
+        var active_player = 0;
+        var player = [];
+        player[1] = "red";
+        player[2] = "blue";
+        var gameboard = [];
 
-            <img id="logodesk" src="images/blije_dobbelsteen_logo%20(1).png">
-            <img id="logodesk2" src="images/blije_dobbelsteen_logo%20(1).png">
-        </div>
+        function beginGame() {
 
-        <div id="home">(gamenaam)</div>
-
-        <div class="containergames" id="containergames">
-            <div class="center">
-
-            </div>
-        </div>
-
-        <script>
-
-      let board = [
-          [0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0]
-      ];
-
-
-            function myFunction() {
-                var x = document.getElementById("myLinks");
-                if (x.style.display === "block") {
-                    x.style.display = "none";
-                } else {
-                    x.style.display = "block";
+            if (game_active == true) return false;
+            game_active = true;
+            for (row=0; row<=5; row++) {
+                gameboard[row] = [];
+                for (col=0; col<=6; col++) {
+                    gameboard[row][col] = 0;
                 }
             }
 
-            let Game = document.createElement('div');
-            Game.classList.add("game");
+            UpdateBoard();
+            active_player = 1;
+            setUpTurn();
+        }
 
-            let player1 = false;
-            let player2 = false;
-            let color1 = 'red';
-            let color2 = 'blue';
 
-            let firstTime = true;
 
-            function SwitchPlayer() {
-                player1 = !player1;
-                player2 = !player2;
+        function UpdateBoard() {
+            checkForWin(); //check to see if any player has won.
+            for (col = 0; col<=6; col++) {
+                for (row=0; row<=5; row++) {
+                    document.getElementById('square_'+row+'_'+col).innerHTML ="<span class='piece player"+gameboard[row][col]+"'> </span>";
+                }
             }
+        }
 
-            function CraeteGameGraphics(){
+        function checkForWin() {
 
+            //check left-to-right
+            for (i=1; i<=2; i++) {
+                for (col = 0; col <=3; col++) {
+                    for (row = 0; row <=5; row++) {
 
-
-                for(let i = 0 ; i<6; i++){
-                    //create new row
-                    let Row = document.createElement('div');
-
-                    Row.classList.add('row');
-                    for(let j = 0 ; j < 7 ; j++){
-                        let circle = document.createElement('div');
-                        circle.id = (i+1) + ',' + (j+1);
-                        circle.classList.add('circle');
-                        circle.addEventListener("click", GameClicked);
-                        Row.appendChild(circle);
-
-                    }
-
-                    Game.appendChild(Row);
-                }
-
-                function GameClicked(e){
-                    let clickedCircle = e.target;
-                    console.log(e);
-                    //console.log(clickedCircle.id);
-                    if(firstTime){
-                        Play(clickedCircle);
-                        firstTime = false;
-                    }else{
-                        SwitchPlayer();
-                        Play(clickedCircle);
-                    }
-       //             board[][]
-
-                }
-
-                function Play(clickedCircle) {
-                    let circle = document.getElementById(clickedCircle.id);
-                    console.log(circle);
-                    let index = parseInt(circle.id[circle.id.length - 1]); // col
-                    for(let i = 6;i>0;i--){
-                        // i  = row
-                        let currentCircle = document.getElementById(i + ',' + index);
-                        console.log('hiere' , currentCircle.style);
-                        if(currentCircle.style.backgroundColor === ""){
-                            console.log('true');
-                            //condition ? if true do ... : if false do ....
-                            currentCircle.style.background = player1 ? color1 : color2;
-                            console.log(i,index);
-                            board[i-1][index-1]= player1 ? 1 : 2;
-                            break;
+                        if (gameboard[row][col] == i) {
+                            if ((gameboard[row][col+1] == i) && (gameboard[row][col+2] == i) && (gameboard[row][col+3] == i)) {
+                                endGame(i);
+                                return true;
+                            }
                         }
                     }
                 }
+            }
 
+            //check top-to-bottom
+            for (i=1; i<=2; i++) {
+                for (col = 0; col <=6; col++) {
+                    for (row = 0; row <=2; row++) {
 
-                function StartGame(){
-                    player1 = true;
-                }
-
-                document.getElementById('containergames').appendChild(Game);
-                document.body.onload = function () {
-                    StartGame();
+                        if (gameboard[row][col] == i) {
+                            if ((gameboard[row+1][col] == i) && (gameboard[row+2][col] == i) && (gameboard[row+3][col] == i)) {
+                                endGame(i);
+                                return true;
+                            }
+                        }
+                    }
                 }
             }
 
-            console.log(Game);
+            //check diagnol down
+            for (i=1; i<=2; i++) {
+                for (col = 0; col <=3; col++) {
+                    for (row = 0; row <=2; row++) {
+                        if (gameboard[row][col] == i) {
+                            if ((gameboard[row+1][col+1] == i) && (gameboard[row+2][col+2] == i) && (gameboard[row+3][col+3] == i)) {
+                                endGame(i);
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //check diagnol up
+            for (i=1; i<=2; i++) {
+                for (col = 0; col <=3; col++) {
+                    for (row = 3; row <=5; row++) {
+                        if (gameboard[row][col] == i) {
+                            if ((gameboard[row-1][col+1] == i) && (gameboard[row-2][col+2] == i) && (gameboard[row-3][col+3] == i)) {
+                                endGame(i);
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
 
+        function endGame(winningPlayer) {
+            game_active = false;
+            document.getElementById('game_info').innerHTML = "Winner: " + winningPlayer;
+        }
 
-        </script>
+        /* active player*/
+        function setUpTurn() {
+            if (game_active) {
+                document.getElementById('game_info').innerHTML = "Current Player: Player " + active_player + " <span class='player"+active_player+"'>(" + player_color[active_player] + ")</span>";
+            }
+        }
 
-        <div class="footer">
-            <p>De blije dobbelsteen©</p>
-        </div>
+
+        function drop(col) {
+            for (row=5; row>=0; row--) {
+                if (gameboard[row][col] == 0) {
+                    gameboard[row][col] = active_player;
+                    UpdateBoard();
+                    if (active_player == 1) {
+                        active_player = 2;
+                    } else {
+                        active_player = 1;
+                    }
+
+                    setUpTurn();
+                    return true;
+                }
+            }
+        }
+    </script>
+
     </body>
-
-
 </html>
