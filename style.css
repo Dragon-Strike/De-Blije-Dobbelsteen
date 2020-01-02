@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
+
 /* Style the navigation menu */
 
 .topnav {
