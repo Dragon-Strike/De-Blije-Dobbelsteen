@@ -1,0 +1,79 @@
+/* * {
+    box-sizing: border-box;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+body {
+    margin: 0px;
+    margin: 0 auto;
+    width: 100%;
+    justify-content: center;
+} */
+
+.inhoud {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.alles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.box {
+    margin-top: 5px;
+    width: 350px;
+    float: left;
+    text-align: center;
+}
+
+.warning {
+    font-size: 15px;
+}
+
+.keuzeInput {
+    height: 35px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.opnieuw {
+    display: none;
+    height: 35px;
+}
+
+@media screen and (max-width: 700px) {
+    /* * {
+        box-sizing: content-box;
+    }
+    body {
+        justify-content: center;
+        display: flex;
+        margin: 0 auto;
+    } */
+    .alles {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        width: 350px;
+    }
+    .box {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .inhoud {
+        font-size: 20px;
+    }
+    .keuzeInput {
+        width: 180px;
+        padding: 0px;
+    }
+    .opnieuw {
+        width: 180px;
+        padding: 0px;
+    }
+}
