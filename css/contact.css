@@ -21,3 +21,14 @@ textarea {
     font-size: 10px;
     margin: 0 auto;
 }
+
+@media screen and (max-width: 825px) {
+    fieldset {
+        width: 100%;
+    }
+    input,
+    select,
+    textarea {
+        width: 100%;
+    }
+}

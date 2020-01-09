@@ -9,7 +9,7 @@ var woorden6 = ["pagina", "bladen", "bedden", "cactus",
     "piloot", "risico", "toilet", "zielig", "woning", "tomaat"
 ];
 var woorden7 = ["uitgang", "typisch", "penning", "ontdekt", "potlood",
-    "koelkast", "alcohol", "dochter", "fornuis", "grenzen", "goudvis",
+    "alcohol", "dochter", "fornuis", "grenzen", "goudvis",
     "jodelen", "kenmerk", "massage", "overval", "prinses", "seizoen",
     "toerist", "uniform", "vroeger", "tijgers", "wortels"
 ];
@@ -159,6 +159,6 @@ function opnieuw() {
     location.reload();
 }
 
-function ziecookie() {
+function zieHighScore() {
     alert('no u');
 }

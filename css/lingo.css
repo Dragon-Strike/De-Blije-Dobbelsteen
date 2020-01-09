@@ -1,14 +1,11 @@
-/* * {
+* {
     box-sizing: border-box;
-    font-family: Verdana, Tahoma, sans-serif;
 }
 
 body {
-    margin: 0px;
     margin: 0 auto;
-    width: 100%;
     justify-content: center;
-} */
+}
 
 .inhoud {
     margin-top: 5px;
