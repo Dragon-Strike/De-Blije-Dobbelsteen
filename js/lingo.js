@@ -66,6 +66,7 @@ document.cookie = "nietGeraden=0";
 
 antwoord = nustring;
 console.log(`Typ "antwoord" hieronder voor het antwoord`);
+
 for (var k = 0; k < 1; k++) {
     letters += nustring.charAt(0);
 }
