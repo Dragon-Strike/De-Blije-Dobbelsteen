@@ -72,7 +72,6 @@ div.container a {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    border-left: 2px solid black;
 }
 
 .sidenav a {
@@ -202,6 +201,9 @@ footer {
     }
     .hamburger {
         display: initial;
+    }
+    .sidenav {
+        border-left: 2px solid black;
     }
 }
 
