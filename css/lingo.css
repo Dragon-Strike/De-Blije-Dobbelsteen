@@ -44,17 +44,16 @@ body {
 }
 
 @media screen and (max-width: 700px) {
-    /* * {
-        box-sizing: content-box;
-    }
-    body {
+    body.main.lingomaincontent {
         justify-content: center;
         display: flex;
+        flex-direction: column;
         margin: 0 auto;
-    } */
+    }
     .alles {
-        display: inline-block;
+        display: flex;
         justify-content: center;
+        flex-direction: column;
         align-items: center;
         width: 350px;
     }
@@ -72,5 +71,18 @@ body {
     .opnieuw {
         width: 180px;
         padding: 0px;
+    }
+    .h2weg {
+        display: none;
+    }
+    .lingoMainContent {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .alles {
+        width: 200px;
     }
 }
