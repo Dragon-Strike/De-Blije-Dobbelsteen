@@ -58,11 +58,7 @@ var tekst = document.getElementById("letters");
 var Input = document.getElementById("keuzeInput");
 var goedfout = document.getElementById("goedfout");
 var keuzeInput;
-
-document.cookie = "welGeraden=0";
-document.cookie = "nietGeraden=0";
-
-//; expires=Thu, 01 Jan 2020 00:00:00 UTC; path=/;
+var c_gokken;
 
 antwoord = nustring;
 console.log(`Typ "antwoord" hieronder voor het antwoord`);
@@ -93,6 +89,8 @@ function keuze() {
         if (document.getElementById('geraden1').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
+            c_gokken = 1;
+            saveScore();
         }
 
     } else if (document.getElementById('geraden2').innerHTML == '-----') {
@@ -102,6 +100,8 @@ function keuze() {
         if (document.getElementById('geraden2').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
+            c_gokken = 2;
+            saveScore();
         }
 
     } else if (document.getElementById('geraden3').innerHTML == '-----') {
@@ -111,6 +111,8 @@ function keuze() {
         if (document.getElementById('geraden3').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
+            c_gokken = 3;
+            saveScore();
         }
 
     } else if (document.getElementById('geraden4').innerHTML == '-----') {
@@ -120,6 +122,8 @@ function keuze() {
         if (document.getElementById('geraden4').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
+            c_gokken = 4;
+            saveScore();
         }
 
     } else if (document.getElementById('geraden5').innerHTML == '-----') {
@@ -132,6 +136,8 @@ function keuze() {
         } else {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
+            c_gokken = 5;
+            saveScore();
         }
     }
 }
@@ -160,6 +166,17 @@ function opnieuw() {
     location.reload();
 }
 
+// ---------------------------------------------------------------------------------------
 function zieHighScore() {
     alert('no u');
+}
+
+function saveScore() {
+    var c_date = new Date();
+    c_date.setMonth(c_date.getMonth() + 5);
+    var c_expires = "; expires=" + c_date.toGMTString();
+
+    var c_name = prompt("wat is je naam?");
+
+    document.cookie = c_name + "=" + c_gokken + c_expires + "; path=/";
 }

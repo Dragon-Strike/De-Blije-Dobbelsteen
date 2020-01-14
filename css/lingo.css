@@ -21,6 +21,14 @@ body {
     margin: 0 auto;
 }
 
+.gamebox {
+    width: 80%;
+    height: 350px;
+    background-color: #76C2AF;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
 .box {
     margin-top: 5px;
     width: 350px;
@@ -56,6 +64,9 @@ body {
         flex-direction: column;
         align-items: center;
         width: 350px;
+    }
+    .gamebox {
+        height: 490px;
     }
     .box {
         width: 100%;

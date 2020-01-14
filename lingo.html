@@ -44,31 +44,33 @@
             <div>
                 <h1 class="centertext">Lingo</h1>
             </div>
-            <div class="alles">
-                <div class="box">
-                    <h2 class="h2weg"><br></h2>
-                    <div class="ingoud warning">(geen hoofdletters gebruiken)</div>
+            <div class="gamebox">
+                <div class="alles">
+                    <div class="box">
+                        <h2 class="h2weg"><br></h2>
+                        <div class="ingoud warning">(geen hoofdletters gebruiken)</div>
 
-                    <div class="inhoud">
-                        <span>het woord:</span>
-                        <span id="letters"></span>
+                        <div class="inhoud">
+                            <span>het woord:</span>
+                            <span id="letters"></span>
+                        </div>
+
+
+                        <input class="keuzeInput" type="text" id="keuzeInput" name="keuzeInput" placeholder="Jouw keuze">
+                        <button class="keuzeInput" id="kz" onclick="keuze()">Gok</button>
+                        <button class="opnieuw" id="opnieuw" onclick="opnieuw()">Begin opnieuw</button>
+                        <div class="inhoud" id="goedfout">Nog niet gegokt</div>
+                        <button onclick="zieHighScore()">zie highscore</button>
+
                     </div>
-
-
-                    <input class="keuzeInput" type="text" id="keuzeInput" name="keuzeInput" placeholder="jou keuze">
-                    <button class="keuzeInput" id="kz" onclick="keuze()">Gok</button>
-                    <button class="opnieuw" id="opnieuw" onclick="opnieuw()">Begin opnieuw</button>
-                    <div class="inhoud" id="goedfout">Nog niet gegokt</div>
-                    <button onclick="zieHighScore()">zie highscore</button>
-
-                </div>
-                <div id="gegoktewoorden" class="box">
-                    <h2>Jouw pogingen</h2>
-                    <div class="inhoud" id="geraden1">-----</div>
-                    <div class="inhoud" id="geraden2">-----</div>
-                    <div class="inhoud" id="geraden3">-----</div>
-                    <div class="inhoud" id="geraden4">-----</div>
-                    <div class="inhoud" id="geraden5">-----</div>
+                    <div id="gegoktewoorden" class="box">
+                        <h2>Jouw pogingen</h2>
+                        <div class="inhoud" id="geraden1">-----</div>
+                        <div class="inhoud" id="geraden2">-----</div>
+                        <div class="inhoud" id="geraden3">-----</div>
+                        <div class="inhoud" id="geraden4">-----</div>
+                        <div class="inhoud" id="geraden5">-----</div>
+                    </div>
                 </div>
             </div>
         </div>
