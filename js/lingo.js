@@ -89,7 +89,7 @@ function keuze() {
         if (document.getElementById('geraden1').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
-            c_gokken = 1;
+            c_gokken = "aantal gokken: " + 1;
             saveScore();
         }
 
@@ -100,7 +100,7 @@ function keuze() {
         if (document.getElementById('geraden2').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
-            c_gokken = 2;
+            c_gokken = "aantal gokken: " + 2;
             saveScore();
         }
 
@@ -111,7 +111,7 @@ function keuze() {
         if (document.getElementById('geraden3').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
-            c_gokken = 3;
+            c_gokken = "aantal gokken: " + 3;
             saveScore();
         }
 
@@ -122,7 +122,7 @@ function keuze() {
         if (document.getElementById('geraden4').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
-            c_gokken = 4;
+            c_gokken = "aantal gokken: " + 4;
             saveScore();
         }
 
@@ -136,7 +136,7 @@ function keuze() {
         } else {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
-            c_gokken = 5;
+            c_gokken = "aantal gokken: " + 5;
             saveScore();
         }
     }
