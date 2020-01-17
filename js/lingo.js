@@ -166,7 +166,6 @@ function opnieuw() {
     location.reload();
 }
 
-// ---------------------------------------------------------------------------------------
 function zieHighScore() {
     alert('W.I.P.');
 }
