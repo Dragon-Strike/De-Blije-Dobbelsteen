@@ -4,12 +4,13 @@ var player = [];
 player[1] = "red";
 player[2] = "blue";
 var gameboard = [];
+var colomns = [];
 var player_color;
 
 function beginGame() {
     document.getElementById('game_info').innerHTML = '<br>';
 
-    if (game_active == true) return false;
+    if (game_active) return false;
     game_active = true;
     for (row = 0; row <= 5; row++) {
         gameboard[row] = [];
@@ -17,7 +18,7 @@ function beginGame() {
             gameboard[row][col] = 0;
         }
     }
-
+    DirectClick();
     UpdateBoard();
     active_player = 1;
     setUpTurn();
@@ -122,6 +123,17 @@ function drop(col) {
 
             setUpTurn();
             return true;
+        }
+    }
+}
+
+function DirectClick() {
+    for (let i = 0; i < 7; i++) {
+        for(let j = 0 ; j < 6 ; j++){
+            console.log(  document.getElementById("square_"+j+"_"+i));
+            document.getElementById("square_"+j+"_"+i).onclick  = function () {
+                drop(i);
+            }
         }
     }
 }
