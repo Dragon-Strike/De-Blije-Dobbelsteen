@@ -30,23 +30,18 @@ nustring = prompt('hoeveel letters heeft uw woord? (min 5 - max 9)');
 switch (nustring) {
     case '5':
         nustring = woorden5[(Math.random() * woorden5.length).toFixed(0)];
-        console.log('5 letterig woord gekozen')
         break;
     case '6':
         nustring = woorden6[(Math.random() * woorden6.length).toFixed(0)];
-        console.log('6 letterig woord gekozen')
         break;
     case '7':
         nustring = woorden7[(Math.random() * woorden7.length).toFixed(0)];
-        console.log('7 letterig woord gekozen')
         break;
     case '8':
         nustring = woorden8[(Math.random() * woorden8.length).toFixed(0)];
-        console.log('8 letterig woord gekozen')
         break;
     case '9':
         nustring = woorden9[(Math.random() * woorden9.length).toFixed(0)];
-        console.log('9 letterig woord gekozen')
         break;
     default:
         location.reload();
@@ -59,9 +54,6 @@ var Input = document.getElementById("keuzeInput");
 var goedfout = document.getElementById("goedfout");
 var keuzeInput;
 var c_gokken;
-
-antwoord = nustring;
-console.log(`Typ "antwoord" hieronder voor het antwoord`);
 
 for (var k = 0; k < 1; k++) {
     letters += nustring.charAt(0);
