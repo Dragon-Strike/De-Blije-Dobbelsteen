@@ -51,6 +51,17 @@ body {
     height: 35px;
 }
 
+.button {
+    border-radius: 30%;
+    background-color: #71c787;
+    border-color: #8cf5a6;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    color: white;
+  }
+
 @media screen and (max-width: 700px) {
     body.main.lingomaincontent {
         justify-content: center;
@@ -58,6 +69,7 @@ body {
         flex-direction: column;
         margin: 0 auto;
     }
+
     .alles {
         display: flex;
         justify-content: center;
@@ -65,27 +77,34 @@ body {
         align-items: center;
         width: 350px;
     }
+
     .gamebox {
         height: 490px;
     }
+
     .box {
         width: 100%;
         margin-top: 30px;
     }
+
     .inhoud {
         font-size: 20px;
     }
+
     .keuzeInput {
         width: 180px;
         padding: 0px;
     }
+
     .opnieuw {
         width: 180px;
         padding: 0px;
     }
+
     .h2weg {
         display: none;
     }
+
     .lingoMainContent {
         width: 100%;
         margin: 0 auto;
