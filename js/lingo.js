@@ -64,6 +64,8 @@ for (var x = 0; x < (nustring.length) - 1; x++) {
 
 document.getElementById('letters').innerHTML = (letters);
 
+console.log(nustring);
+
 function keuze() {
     keuzeInput = Input.value.toLowerCase();
     if (keuzeInput == nustring) {
@@ -81,7 +83,7 @@ function keuze() {
         if (document.getElementById('geraden1').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
-            c_gokken = "aantal gokken: " + 1;
+            c_gokken = "aantal pogingen: " + 1;
             saveScore();
         }
 
@@ -92,7 +94,7 @@ function keuze() {
         if (document.getElementById('geraden2').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
-            c_gokken = "aantal gokken: " + 2;
+            c_gokken = "aantal pogingen: " + 2;
             saveScore();
         }
 
@@ -103,7 +105,7 @@ function keuze() {
         if (document.getElementById('geraden3').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
-            c_gokken = "aantal gokken: " + 3;
+            c_gokken = "aantal pogingen: " + 3;
             saveScore();
         }
 
@@ -114,7 +116,7 @@ function keuze() {
         if (document.getElementById('geraden4').innerHTML == nustring) {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
-            c_gokken = "aantal gokken: " + 4;
+            c_gokken = "aantal pogingen: " + 4;
             saveScore();
         }
 
@@ -128,7 +130,7 @@ function keuze() {
         } else {
             document.getElementById('kz').style.display = 'none';
             alert('je hebt het woord geraden!');
-            c_gokken = "aantal gokken: " + 5;
+            c_gokken = "aantal pogingen: " + 5;
             saveScore();
         }
     }
@@ -154,14 +156,6 @@ function fout() {
     tekst.innerHTML = letters;
 }
 
-function opnieuw() {
-    location.reload();
-}
-
-function zieHighScore() {
-    alert('W.I.P.');
-}
-
 function saveScore() {
     var c_date = new Date();
     c_date.setMonth(c_date.getMonth() + 5);
@@ -170,4 +164,17 @@ function saveScore() {
     var c_name = prompt("wat is je naam?");
 
     document.cookie = c_name + "=" + c_gokken + c_expires + "; path=/";
+}
+
+function opnieuw() {
+    location.reload();
+}
+
+function zieHighScore() {
+    var theCookies = document.cookie.split(';');
+    var aString = '';
+    for (var i = 1; i <= theCookies.length; i++) {
+        aString += theCookies[i - 1] + "\n";
+    }
+    alert(aString);
 }
