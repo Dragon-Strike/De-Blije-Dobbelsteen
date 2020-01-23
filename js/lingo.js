@@ -1,5 +1,5 @@
 var woorden5 = ["boter", "kleur", "dalen", "jeugd", "worst", "lepel",
-    "flora", "stoep", "fiets", "hamer", "droom", "glans", "jagen",
+    "vloer", "stoep", "fiets", "hamer", "droom", "glans", "jagen",
     "kaart", "kater", "kamer", "motor", "meeuw", "regio", "radio",
     "vlees", "zwaar", "zweet", "dreun", "buren", "avond"
 ];
@@ -138,7 +138,7 @@ function keuze() {
 
 function goed() {
     goedfout.innerHTML = 'dit is goed';
-    tekst.innerHTML = nustring;
+    tekst.innerHTML = `<span class="goed">${nustring}</span>`;
 
     document.getElementById('opnieuw').style.display = 'initial';
 }
@@ -148,12 +148,21 @@ function fout() {
     goedfout.innerHTML = 'dit is fout';
     for (var i = 0; i <= nustring.length; i++) {
         if (keuzeInput.charAt(i) == nustring.charAt(i)) {
-            letters += nustring.charAt(i);
-        } else {
-            letters += '-';
+            letters += `<span class="goed">${nustring.charAt(i)}</span>`;
+        } else if (nustring.includes(keuzeInput.charAt(i))) {
+            letters += `<span class="in-woord">${keuzeInput.charAt(i)}</span>`;
+        } 
+        else {
+            letters += `<span class="fout">${keuzeInput.charAt(i)}</span>`;
         }
     }
+    let lettersArray = letters.split('');
+        if (lettersArray.length > nustring.length) {
+            lettersArray.pop();
+            letters = lettersArray.join('');
+        }
     tekst.innerHTML = letters;
+    keuzeInput = letters;
 }
 
 function saveScore() {

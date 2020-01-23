@@ -7,6 +7,18 @@ body {
     justify-content: center;
 }
 
+.goed {
+    background-color: red;
+}
+
+.fout {
+    background-color: blue;
+}
+
+.in-woord {
+    background-color: yellow;
+}
+
 .inhoud {
     margin-top: 5px;
     margin-bottom: 5px;
