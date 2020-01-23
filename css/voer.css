@@ -6,11 +6,12 @@
         width: 73vw;
         height: 50vh;
     }
+    
     .maincontent {
         height: 950px;
         width: 65%;
     }
-
+    
     .gamebox {
         width: 100%;
         height: 700px;
@@ -35,6 +36,17 @@
         display: flex;
         margin-top: -14.5vw;
         margin-left: -3.5vw;
+    }
+    
+    .button {
+        border-radius: 30%;
+        background-color: #71c787;
+        border-color: #8cf5a6;
+        transition-duration: 0.4s;
+    }
+    
+    .button:hover {
+        color: white;
     }
     
     .game {
@@ -66,10 +78,10 @@
     }
     
     .piece {
-        height: 32px;
-        width: 32px;
+        height: 37px;
+        width: 37px;
         display: block;
-        border-radius: 16px;
+        border-radius: 18px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -79,18 +91,19 @@
     }
     
     .player1 {
-        background-color: #FF0000;
+        background-color: red;
     }
     
     .player2 {
-        background-color: #0000FF;
+        background-color: yellow;
     }
     
     .board_square {
-        border: 2px solid #555555;
         height: 56px;
         width: 56px;
+        border-radius: 10px;
     }
+    
     .board_square:hover {
         transform: scale(1.2);
     }
@@ -99,27 +112,35 @@
         justify-content: center;
         margin: 0 auto;
         margin-top: 10px;
-        background-image: url("../images/wood_background.jpg");
+        padding: 5px;
+        background-color: blue;
+        border-radius: 10px;
     }
     
     #begin_game {
-        margin-top: 30px;
-        margin-bottom: 35px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
-
+    
     .cant {
         display: none;
     }
-#AllInfo {
-    display: table;
-    margin-left: 80px;
-}
+    
+    #AllInfo {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    #selectElement select {
+        margin-top: 15px;
+    }
     
     @media screen and (max-width: 700px) {
         .gamebox {
             display: none;
         }
         .cant {
+            text-align: center;
             display: block;
             margin-top: 25vh;
         }
@@ -128,9 +149,5 @@
     @media screen and (max-width: 550px) {
         .gamebox {
             display: none;
-        }
-        .cant {
-            display: block;
-            margin-top: 25vh;
         }
     }

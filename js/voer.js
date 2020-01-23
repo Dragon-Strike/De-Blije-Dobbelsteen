@@ -7,12 +7,12 @@ var gameboard = [];
 var colomns = [];
 var player_color;
 
-let levels = ['Kies modus ' ,'4 op een rij' , '5 op een rij'];
+let levels = ['Kies modus ', '4 op een rij', '5 op een rij'];
 let level = '';
 let selectContainer = document.getElementById('selectElement');
 let selectElement = document.createElement('select');
 selectElement.addEventListener("change", myScript);
-for(let x=0;x<levels.length ; x++){
+for (let x = 0; x < levels.length; x++) {
     let optionElement = document.createElement('option');
 
     optionElement.value = levels[x];
@@ -22,11 +22,11 @@ for(let x=0;x<levels.length ; x++){
 selectContainer.appendChild(selectElement);
 
 
-function myScript(){
+function myScript() {
     let gameTable = document.getElementById('game_table');
-    gameTable.innerHTML ="";
+    gameTable.innerHTML = "";
 
-    level ='';
+    level = '';
     level = this.value;
 
 
@@ -35,7 +35,7 @@ function myScript(){
         case '4 op een rij':
 
 
-            for(var col = 0; col <= 5; col++) {
+            for (var col = 0; col <= 5; col++) {
 
                 tr = document.createElement('tr');
                 gameTable.appendChild(tr);
@@ -44,8 +44,8 @@ function myScript(){
                     //document.writeln("<td id='square_" + col + "_" + row + "' class='board_square'></td>");
                     let td;
                     td = document.createElement('td');
-                    td.setAttribute("class" , "board_square");
-                    td.setAttribute("id" , "square_" + col + "_" + row + "");
+                    td.setAttribute("class", "board_square");
+                    td.setAttribute("id", "square_" + col + "_" + row + "");
                     tr.appendChild(td);
                 }
 
@@ -55,27 +55,29 @@ function myScript(){
         case '5 op een rij':
 
 
-            for(var col = 0; col <= 7; col++) {
+            for (var col = 0; col <= 7; col++) {
                 tr = document.createElement('tr');
                 gameTable.appendChild(tr);
                 for (var row = 0; row <= 8; row++) {
                     let td;
                     td = document.createElement('td');
-                    td.setAttribute("class" , "board_square");
-                    td.setAttribute("id" , "square_" + col + "_" + row + "");
-                    tr.appendChild(td);                    }
+                    td.setAttribute("class", "board_square");
+                    td.setAttribute("id", "square_" + col + "_" + row + "");
+                    tr.appendChild(td);
+                }
             }
             break;
     }
 
 }
 let ended = false;
+
 function beginGame() {
     ended = false;
     document.getElementById('game_info').innerHTML = '<br>';
     switch (level) {
         case '4 op een rij':
-        if (game_active) return false;
+            if (game_active) return false;
             game_active = true;
             for (row = 0; row <= 5; row++) {
                 gameboard[row] = [];
@@ -108,12 +110,12 @@ function UpdateBoard() {
     switch (level) {
         case '4 op een rij':
 
-        for (col = 0; col <= 6; col++) {
-            for (row = 0; row <= 5; row++) {
-                document.getElementById('square_' + row + '_' + col).innerHTML = "<span class='piece player" + gameboard[row][col] + "'> </span>";
+            for (col = 0; col <= 6; col++) {
+                for (row = 0; row <= 5; row++) {
+                    document.getElementById('square_' + row + '_' + col).innerHTML = "<span class='piece player" + gameboard[row][col] + "'> </span>";
+                }
             }
-        }
-        break;
+            break;
         case '5 op een rij':
             for (col = 0; col <= 8; col++) {
                 for (row = 0; row <= 7; row++) {
@@ -188,7 +190,7 @@ function checkForWin() {
                     for (row = 0; row <= 7; row++) {
 
                         if (gameboard[row][col] == i) {
-                            if ((gameboard[row][col + 1] == i) && (gameboard[row][col + 2] == i) && (gameboard[row][col + 3] == i) && (gameboard[row][col + 4] ==i )) {
+                            if ((gameboard[row][col + 1] == i) && (gameboard[row][col + 2] == i) && (gameboard[row][col + 3] == i) && (gameboard[row][col + 4] == i)) {
                                 endGame(i);
                                 return true;
                             }
@@ -243,22 +245,22 @@ function checkForWin() {
 
 function endGame(winningPlayer) {
     ended = true;
-    let winnerPoints = localStorage.getItem("player"+winningPlayer);
-    if(winnerPoints >= 1){
+    let winnerPoints = localStorage.getItem("player" + winningPlayer);
+    if (winnerPoints >= 1) {
         console.log(winnerPoints);
 
-        localStorage["player"+winningPlayer] = parseInt(winnerPoints) + 1;
-    }else{
-        localStorage.setItem("player"+winningPlayer, 1);
+        localStorage["player" + winningPlayer] = parseInt(winnerPoints) + 1;
+    } else {
+        localStorage.setItem("player" + winningPlayer, 1);
     }
 
 
-    winnerPoints +1;
+    winnerPoints + 1;
     let winTimes = 1;
     game_active = false;
     document.getElementById('game_info').innerHTML = "Winnaar is: speler " + winningPlayer;
-    let PLayerScour = document.getElementById('scour').innerHTML = 'player 1 scour is: ' + localStorage.getItem('player1');
-    PLayerScour = document.getElementById('scour2').innerHTML = 'player 2 scour is: ' + localStorage.getItem('player2');
+    let PLayerScour = document.getElementById('scour').innerHTML = 'player 1 score is: ' + localStorage.getItem('player1');
+    PLayerScour = document.getElementById('scour2').innerHTML = 'player 2 score is: ' + localStorage.getItem('player2');
 }
 
 
@@ -273,21 +275,21 @@ function setUpTurn() {
 function drop(col) {
     switch (level) {
         case '4 op een rij':
-        for (row = 5; row >= 0; row--) {
-            if (gameboard[row][col] == 0) {
-                gameboard[row][col] = active_player;
-                UpdateBoard();
-                if (active_player == 1) {
-                    active_player = 2;
-                } else {
-                    active_player = 1;
-                }
+            for (row = 5; row >= 0; row--) {
+                if (gameboard[row][col] == 0) {
+                    gameboard[row][col] = active_player;
+                    UpdateBoard();
+                    if (active_player == 1) {
+                        active_player = 2;
+                    } else {
+                        active_player = 1;
+                    }
 
-                setUpTurn();
-                return true;
+                    setUpTurn();
+                    return true;
+                }
             }
-        }
-        break;
+            break;
         case '5 op een rij':
             for (row = 7; row >= 0; row--) {
                 if (gameboard[row][col] == 0) {
@@ -312,11 +314,11 @@ function DirectClick() {
         case '4 op een rij':
             for (let i = 0; i < 7; i++) {
                 for (let j = 0; j < 6; j++) {
-                  //  console.log(document.getElementById("square_" + j + "_" + i));
-                    document.getElementById("square_" + j + "_" + i).onclick = function () {
-                        if(ended){
+                    //  console.log(document.getElementById("square_" + j + "_" + i));
+                    document.getElementById("square_" + j + "_" + i).onclick = function() {
+                        if (ended) {
                             alert('start opnieuw');
-                        }else{
+                        } else {
                             drop(i);
                         }
 
@@ -327,11 +329,11 @@ function DirectClick() {
         case '5 op een rij':
             for (let i = 0; i < 9; i++) {
                 for (let j = 0; j < 8; j++) {
-               //     console.log(document.getElementById("square_" + j + "_" + i));
-                    document.getElementById("square_" + j + "_" + i).onclick = function () {
-                        if(ended){
+                    //     console.log(document.getElementById("square_" + j + "_" + i));
+                    document.getElementById("square_" + j + "_" + i).onclick = function() {
+                        if (ended) {
                             alert('start opnieuw');
-                        }else{
+                        } else {
                             drop(i);
                         }
                     }
