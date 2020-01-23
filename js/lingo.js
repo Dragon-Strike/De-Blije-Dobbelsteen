@@ -147,20 +147,21 @@ function fout() {
     letters = '';
     goedfout.innerHTML = 'dit is fout';
     for (var i = 0; i <= nustring.length; i++) {
-        if (keuzeInput.charAt(i) == nustring.charAt(i)) {
-            letters += `<span class="goed">${nustring.charAt(i)}</span>`;
-        } else if (nustring.includes(keuzeInput.charAt(i))) {
-            letters += `<span class="in-woord">${keuzeInput.charAt(i)}</span>`;
-        } 
-        else {
+        if (nustring.includes(keuzeInput.charAt(i))) {
+            if (keuzeInput.charAt(i) === nustring.charAt(i)) {
+                letters += `<span class="goed">${nustring.charAt(i)}</span>`;
+            } else {
+                letters += `<span class="in-woord">${keuzeInput.charAt(i)}</span>`;
+            }
+        } else {
             letters += `<span class="fout">${keuzeInput.charAt(i)}</span>`;
         }
     }
     let lettersArray = letters.split('');
-        if (lettersArray.length > nustring.length) {
-            lettersArray.pop();
-            letters = lettersArray.join('');
-        }
+    if (lettersArray.length > nustring.length) {
+        lettersArray.pop();
+        letters = lettersArray.join('');
+    }
     tekst.innerHTML = letters;
     keuzeInput = letters;
 }
