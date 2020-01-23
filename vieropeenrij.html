@@ -43,22 +43,18 @@
         <div class="maincontent">
             <div>
                 <h1 class="centertext">Vier op een rij</h1>
+                <div id="selectElement">
+
+                </div>
                 <div class="gamebox">
                     <button class="begin_game" id="begin_game" onclick="beginGame();">Begin Game</button>
+                    <div id="game_info"><br></div>
+                    <div id="AllInfo">
+                        <p id="scour"></p>
+                        <p id="scour2"></p>
+                    </div>
                     <table id="game_table">
 
-                        <div id="game_info"><br></div>
-
-                        <script>
-                            for (var col = 0; col <= 5; col++) {
-
-                                document.writeln("<tr>");
-                                for (var row = 0; row <= 6; row++) {
-                                    document.writeln("<td id='square_" + col + "_" + row + "' class='board_square'></td>");
-                                }
-                                document.writeln("</tr>");
-                            }
-                        </script>
                     </table>
                 </div>
             </div>
@@ -68,9 +64,9 @@
             <footer>
                 <p>De blije dobbelsteen©</p>
             </footer>
+        </div>
     </main>
     <script src="js/voer.js"></script>
     <script src="js/mainjs.js"></script>
 </body>
-
 </html>
