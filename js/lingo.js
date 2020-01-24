@@ -64,8 +64,6 @@ for (var x = 0; x < (nustring.length) - 1; x++) {
 
 document.getElementById('letters').innerHTML = (letters);
 
-console.log(nustring);
-
 function keuze() {
     keuzeInput = Input.value.toLowerCase();
     if (keuzeInput == nustring) {
